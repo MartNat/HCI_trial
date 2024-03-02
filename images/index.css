@@ -1,0 +1,86 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for massive-name section */
+.massive-name {
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically and horizontally */
+    height: 100vh; /* Set the section to take full viewport height */
+}
+
+.massive-name h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.massive-name h1 span {
+    color: #f1c40f;
+}
+
+/* Centering the icon */
+.lord-icon {
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Style for content section */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.textbox {
+    padding: 20px;
+}
+
+.textbox p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.textbox a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f1c40f;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.textbox a:hover {
+    background-color: #333;
+    color: #f1c40f;
+}
+
+.imgBox {
+    margin-left: 50px;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    .massive-name h1 {
+        font-size: 2rem;
+    }
+
+    .imgBox {
+        display: none;
+    }
+}
