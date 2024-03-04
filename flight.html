@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Agency Website</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+        <style>
+            /* Basic styling for demonstration purposes */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                text-align: center;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            input[type="text"], input[type="date"], input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+            input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: none;
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            .results {
+                margin-top: 20px;
+            }
+            .result {
+                background-color: #f2f2f2;
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <!-- Logo -->
+            <a href="#" class="logo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMHBhUSBxIVFhMUFRgaGBcYGRUdHBYeGR0XFhceFxcYHCgjGBooHhUXIjYtJisrOy8wHR80OUA5OCgtLisBCgoKDg0OGxAQGy0mICYtLy0tLTgtMy0vLTcvLS0tLS8tLS0tLy8tLy0tLS8tLS8tLSstLS8tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcDBAUCCAH/xABDEAACAQIDAwcJBgMHBQAAAAAAAQIDBAUREgYhMQcTIkFRYXEXMkJTgZGSodIUFVJUcoJDYrEkJTM0k6LCIzWDssH/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAgMEAQUG/8QAMBEAAgECAwQJBAMBAAAAAAAAAAECAxESITEEUZHwExQyQWFxgaGxBSJS0WLB4UL/2gAMAwEAAhEDEQA/ALxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABo4niNLCbGVW+moQit7fySXW31JFXX3KvXd2/u6jTVP0dak5eL0ySXh1F1LZ6lXsopq14Uu0y3wU15WLv1VH4an1DysXfqqPw1PqLuoVty4lXXqO98GXKCmvKxd+qo/DU+oeVi79VR+Gp9Q6hW3LiOvUd74MuUFNeVi79VR+Gp9Q8rF36qj8NT6h1CtuXEdeo73wZcoKa8rF36qj8NT6h5WLv1VH4an1DqFbcuI69R3vgy5QU15WLv1VH4an1DysXfqqHw1PqHUK25cR16jvfBlygpnysXfqqHw1PqOvstt1fbQ4xCjSpUVHjUkoz6EFxfncXwXe0clsVWKcnbLxOx2ulJ2V7+TLPABkNQAAAAAAAAAAAAAAAAAANa9u4WFpKrdyUYQTcpPqSM8npWb4FFcpO2f39e8zh8v7NTfFfxZL0n/ACrq9/ZldQourKy07yqtVVONzS212sntNf5740IN83D5apdsn8lu7W41qMWo/dR7kEoRUY6Hhzbm8UtTJqPWow6j81E8TI4TLqGox6hqF2MJm1HnUYtQ1DExhMuoajHqGoYmMJm1HnUYtR+6hiYwmzb0pXNeMLeLlOTSjFcW3uSRf2w2zMdmsJ0zydaplKrJdvVFP8Mc8u95vrOByY7FfdVJXWKR/wCvJdCD/hRfW+ybXuW7rZYp5G2bTjeCOi9z1dk2bAsctfgAAwm4AAAAAAAAAAAAAAAAAAhfKRTvrzDFb7PUXJVc+dmpQWUfwLVJed19yy691VeTvE/yj+Oj9Z9Eg0UtplTjaKXPqZ6mzxqO7bPnbyd4n+Ufx0frHk7xP8o/jo/WfRILOvVNy59SHUob2fO3k7xP8o/jo/WRq5oytbmVOuspQk4yWaeTi8ms1ue9H0ttZiywLZ2tcPjCD098pdGC+Jo+YZVHKWc3m3vbfWatnrzqJuVjNXoxp2SMmYzMWoajRcz2MuZ7o03XrRhRTcpNRSXW28kl7Wa+omvJFhH3ptdGdRZwt4uo+zV5tNeOb1ftZGdTDFyJwg5SSMHk7xP8o/jo/WPJ3if5R/HR+s+iQef16puXPqbupQ3s+dvJ3if5R/HR+sn+wHJwsJqxuMd0yrLfCmt8ab7ZPhKfyXe8mrKBCptdSccOhKGywg76gAGY0gAAAAAAAAAAAAAAAAx1KqpU86rSS4tvJL2sAyGGtVjQpOVZqMYptt7kkt7bfUjRoY7bV7qNOjXpynLPSlJPVlx0vhLh1G9cUFcW8oVOEouL8GsmdcXF2kjiaayP2hWjXp6qMlJPrTTXvRlKLvsHvtl6rllUhFfxIN6X3txe792Rt4byjXlm0q0oVY/zx3+yUMvnmelL6ZJrFRmpLh+17nnx+oRTtVi4vj+n7F0ggGHcqFvW3YhSnSfaspx+WT+RKsNx62xRf2CvCTfo5pS+F7/kYqmz1aXbi18cdDZTr06nZkufArfl3xnTSoWdJ8W6s/BZwpp9zbm/2op7USnlN+01tqq9fEqFWnTc9NOU4yUdEejDKfDflq4+kRHUbqCw01YyVrubMuoajFqP3UW4irCZNRfnIvg32DZbn6qyncy1d+iOcaa8POl+4orCbGWK4pSoW/nVakYLu1NLPwSzb7kz6vsrWNjZwpW6yhTjGMV2KKyXyRk2qp9qiadmhniNgA8ykoxzk8kYTYegcS92qs7L/MXNPNdUXqfuhmcW45S7Kl/h87P9MUv/AHaLobNWn2YvgVSr049qS4k1BC7Hb+F9/lLS6mtWnOMIvflnlullnlvyJDhWLU8ToZ0FOL/DUhKEvFKS6S71mcqUZ0+2rc86nYVYT7LOmACosAAAAAAAAAAAABH9uLR3ey9dUvPjHnItcU6bVRZd/Ry9pIDHVgqsHGazTTT8HuZKEnGSku7M5KKkmmV9hl5T5Q8A0VJKne2+UoyW5xkvNnHLfobSzS4P9rOzsftJLEJStcXWi8obpxfppenHt6s8u1NbmQbEMIq4RaQxDZ6WVW1lKlcw476TdNzlFdUoxTkuySl2s7uJUY7Z4PTxDZl6L2j1JrVmt8qcn1ve9Le5p5PdLduqQptWXZby/g+9Pwf+91njg5J3fatn/JftFkEYxrYizxeLcqfNzfp0+i/bHzX7UfmxG1MNpbDprRXp7qtPsfDNJ79Ly9j3EoMl6lGbs2muee40tQqxzV0URj+yqwrFeYtrmNWWWeiMKsqkc+GcYRks/Fo4WJ2ysKuiq6iqLjGpDRl7HJv5I+klFJ7lx495DtreduMao07ila/YFHOvUuXHi291HpKSmlHjw6Xcb6f1OaaxZ8F8L2Mc/p8He3PuVXh21t5h0cra4np/BPpxy7NM88l4ZGWrjNliX/e8No6nxqWzdGXi4rdJ+J+4nSsoYlL7PzNOm29KlOvVa7M3R3Jfull3nNxLDayp85RhTnRivPoPXBfreblF/ryNb6Go7uNvHT3TzZmSrQWUr+GvzoZ6myuHYk/7mxCVGT/h3UMl/rU+ivbmay5M8QlPOlGhKllnz8a9Lmve3q/2nI5w2LO/qWNTVZVJwfbCTWfjlxIy2V/8y4q/vr8k47R+UeGXsS7YzCbTY7GY3WM31CtOEJKFO3jOooyktOrnEst0XJcFx7iVX3KzTjuwy2nLvqSUflHVn70VrLH3cL+8qNGtn6Thon/qUtLb/VmaltidS2s6lKi8o1XTctyzzpuThk+rfJv3EVscG7zzeXfl7btc0de0z0i7Lyz9yfXu2OKXiloUaEY1I0pZRUXGc89MZc421we9LccK/wBVaq/vy9c3C55ucdU5tRj59WGforgt28jNzfVLurKVzOUnOWqWb86Xa1272YtRop0lDs2Xks+OpROePW783/SsSCleW1rUi40pVXCvKT1PKNSmstEWlwk2m3uNWviTrWcKWiEYwnOSaXSevLdJ9aWlJHI1jWXK17u75t/b5RW72tkjq0sVq0aKhRqzjFNyUYykkm1k3knxy3Z9h7t8ar2s07evOLT1LKcuLzzeWeW/N+9nNtqU7qtotISnN+jCLk/ct5N9n+TG7xCSlijVvT7HlKo13RTyj7Xu7CFSrSpr77EoUqk8o34kv5Ndra+PVKlHEVqdOCkqiSXXllNLdm+Kyy4MsA5OAYDQwCx5rDoZLjKT3ym+2T63/TqOsfPVpQlNuCsufk9qjGUYJSd2AAVFgAAAAAANHFcTpYRZuriEtMFxlplLL2RTZvAIMitpyhYbeTyhdxj+tTgvfOKXzJBZ39K/p6rGrTqLthKMl74si21myuF3VNzxdUqEn/EjONJ+L6pPxTKX2kw+1wm7zwK+Vff1QnGUP/Ilpl7GvA106NKrlFteauuOXvYzyqTh2kn7E12xxersZyhzq2vSpXEITnSfm1Fk6cl+rOEnn1Z9jyfiVd7G4jSxHZ9Slh92lqp/gzzbg1wUotS0vqylHxglPaW6hT0yrznH8NXTVXuqqSRLtjNp1i8vu3GlQp2tZSW6lp6b3xUXGSjTlq6Sel712s1SpuMVdJ5Wl4rhqu7MojJSeTtndeD/AEd/bTDHGEca2PqOOcdVTR1p8Z6flOLXVnxTz5dvytXlamqdG3pTqtbmo1Hnlv8A8NS37lnuZsbN4rU5Pcclh+0u+0qtunVa6Kz3at/oP0l6L38G2+NtvsvW2OxNXmAyf2aeeiccnzPOJxcW9/Rak1GXflxybjBQbwTSf4Pet2XPd5yliX3Ry/JbvE/a20eLY246q7pQq06lSGlxpxcaSbm1KPS9Fre/kcCpb06klPErvXKdvKqstU5KpnJQpVHvyk8k3nwT8GcOdeVSEVUk2oLKKbbUVnnlFPgs23uPGs1xgo9my8kjNKV9c/NncldWtGL5mlOblbKLc5ZaKzacqkcuMUk0k+0w3GMTneRq2iVCUKcIJ0c4PoRUc2089TyzZyNR09n8Er7Q36o4XDVLi290YLtnLqX9eok8MVeXuc+55JcDziGJTxCaldaNS4yjCEXLvm4Jan3veauosS12fw3Ca6pXHP4hddcKWapxa4rovN5cOMvBHbhgsK8P+rs64w7Y14qfu6Lz9pX06iso5ei4XaJdFd65+r+EyoNQ1Fj4lyfUMSnls/Krb1+P2a5TjqXXzdTfnl3OfsI9X2Yp4VUaxipOU45pwp6KMU121rpxeX6acu4ktpg9/lble5x0JIjSlm8lxZKsJ5PsRxOClGhzcXwlVah/t3zXwmnHaaWB3sXglGhS0OMtUWq0p9emVeWe58Ho0n0Bs7jNPH8Hp3Fn5s1vXXFrdKL709xRtG01IRTitfX/AD5LaWzwk2myuMN5HXxxS6/bSj/zn9JKcN5NcOssnOi6sl11ZN++Kyi/cTIHnz2mrLWT+Pg2RoU46I1bKxpWFLTY04U49kIxivdFG0AUFoAAAAAAAAAAAANa9s43tLTX1ZfyzqQfvhJM2QAQ655NMMuZuVa3k5PjLnrjP51DVnyT4ZJdGnUXhVn/APWydgs6ap+T4sh0cdyK6q8jthPzKlzHwnT/AOVNmtU5F7R/4dzcLx5p/wDBFnAl1ir+TOdDDcQa62FqXeCfZb685+mvMdejqqU+paKkKkH78+zhuP3Z7ZG6wGydCF5Tr27TXNV6DainxUWqm6L7HmicGhjeIxwjCKtxc+bRpym+/Sm8l3vh7SPSztb+lzwO4Fe5R20WytjRxipBYjbW7i8pUtNaWiXFpZvNLet2by+S5ksFwy3Wd1jEWuynbVn88yH3VxO/vJ1K/SqVZylLLPfKbbeS8WW/gWzcNj6VGFG3jdYrXjrSlk4W0e3sWXDPdm896WSN2OorRxZ+nrdtPJGW0M20RpWOF21JTp0MVul1ONJU6b7Ok1nl4MnVfDVbVYYVsvT+zyrQVW6mpSm6cWstLqSebfV1cVlkpM71thGKz6d3iNOEvVxoQlBd2p6Wze2YwSrht3cV8UnCpXuJxblBNLTGKUVk/N359b6iqVW2ble2iz17tUllruJ4L5KNr66aejeuhvYFgVDArJU8Ogorrl6U32yl1v8Ap1HVAMbbbu9TSkkrI1rm3hc09NeKazzXc1wafFNdq4HMxHBoVrh1Y2dtWq6VHXV0qTS4Jy5qW47gCdhYrvGLG2tqbWN4d9ljLc7q20NQz3ZynCKlFfqi0d/YXZyhs5gujDqjqxqS5x1G9080lFxS3JaUlu4kinFTjlJZp8V2nDwWw+5cQqULfdQmnUpR9W88qsV2QzlCSX80ixzxQssvXJ8d2vH1hhwyud8AFRYAAAAAAAAAAAAAAAAAAAAAAAACIcpeCXW0Ozv2bBObTnUi6jnJxWmPSSWUXv1KPuJeDqdndHGroovZnkmvbDaK3rYj9ndKnVhOSjOTfRepZJwWe9LrLhsMMVtiNevPfUrSjv8AwwhGMYxXYs1KXjJnTBKVSUtTigkAAQJAAAAAAA8aE5pvik178s/6I9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//9k=" alt="Logo">Triplaunch</a>
+            <!-- Navigation Links -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="customer-service.html">Customer Service</a></li>
+                    <li><a href="flight.html">Available Flights</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="travel-insurance.html">Travel Insurance</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <div class="container">
+            <h1>Flight Search</h1>
+            <form id="flightSearchForm">
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <input type="text" id="to" name="to" required>
+                </div>
+                <div class="form-group">
+                    <label for="departureDate">Departure Date:</label>
+                    <input type="date" id="departureDate" name="departureDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers:</label>
+                    <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+                </div>
+                <input type="submit" value="Search Flights">
+            </form>
+        </div>
+    
+        <div id="results" class="container results"></div>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const form = document.getElementById("flightSearchForm");
+                const resultsDiv = document.getElementById("results");
+    
+                const apiKey = "60cbc3eaa0msh212308bdee874bdp1118e9jsnd3fbf93c462d";
+                const apiBaseUrl = "https://siddiq-such-flight-v1.p.rapidapi.com/search";
+    
+                form.addEventListener("submit", async function (event) {
+                    event.preventDefault(); // Prevent form submission
+    
+                    // Retrieve form data
+                    const from = document.getElementById("from").value;
+                    const to = document.getElementById("to").value;
+                    const departureDate = document.getElementById("departureDate").value;
+                    const passengers = document.getElementById("passengers").value;
+    
+                    const url = `${apiBaseUrl}?to=${to}&from=${from}&depart-date=${departureDate}&return-date=${departureDate}`;
+    
+                    resultsDiv.innerHTML = "";
+    
+                    try {
+                        const response = await fetch(url, {
+                            headers: {
+                                "X-RapidAPI-Key": apiKey,
+                                "X-RapidAPI-Host": "siddiq-such-flight-v1.p.rapidapi.com"
+                            }
+                        });
+                        const responseData = await response.json();
+    
+                        // Display the results
+                        if (responseData && responseData.data) {
+                            resultsDiv.innerHTML = `
+                                <div class="result">
+                                    <p>Response Data: ${JSON.stringify(responseData)}</p>
+                                </div>
+                            `;
+                        } else {
+                            resultsDiv.innerHTML = "<p>No flights found.</p>";
+                        }
+                    } catch (error) {
+                        console.error("Error fetching flight data:", error);
+                        resultsDiv.innerHTML = "<p>An error occurred while fetching flight data.</p>";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
