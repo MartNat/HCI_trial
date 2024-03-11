@@ -8,6 +8,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+          background-image: url('background-image.jpg');
+          background-size: cover;
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .container {
+          width: 80%;
+          margin: auto;
+          text-align: center;
+          padding-top: 50px;
+          color: #fff;
+        }
+        .package {
+          border: 2px solid #fff;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      </style>
 </head>
 <body>
     <header>
@@ -21,10 +44,33 @@
                 <li><a href="customer-service.html">Customer Service</a></li>
                 <li><a href="flight.html">Available flights</a></li>
                 <li><a href="about-us.html">About Us</a></li>
-                <li><a href="travel-insurance.html">Travel Insurance</a></li>
+                <li><a href="travel-insurance.html">Trips we offer</a></li>
             </ul>
         </nav>
     </header>
+    <div class="container">
+        <h1>Types of Trips (Packages)</h1>
+        <div class="package">
+          <h2>Solo Trips</h2>
+          <p>Explore the world on your own!</p>
+        </div>
+        <div class="package">
+          <h2>Family Trips</h2>
+          <p>Plan a family vacation with us.</p>
+          <p>Number of members: <input type="number" min="1" name="family-members"></p>
+        </div>
+        <div class="package">
+          <h2>Work Trips</h2>
+          <p>Stay productive while traveling.</p>
+          <p>
+            Type:
+            <select name="work-type">
+              <option value="individual">Individual</option>
+              <option value="group">Group</option>
+            </select>
+          </p>
+        </div>
+      </div>
     
     <div class="content">
         <!-- Your page content goes here -->

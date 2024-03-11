@@ -19,15 +19,19 @@
             box-sizing: border-box;
         }
         body.background{
-            background-image: url(https://images.pexels.com/photos/9186174/pexels-photo-9186174.jpeg?auto=compress&cs=tinysrgb&w=600);
+            
             background-size: contain;
             background-position: cover;
             background-repeat: no-repeat;
         }
         /* Style for massive-name section */
         .massive-name {
+            background-image: url(https://images.pexels.com/photos/396437/pexels-photo-396437.jpeg?auto=compress&cs=tinysrgb&w=600);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             text-align: center;
-            margin-top: 5px;
+            margin-top: 0px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,12 +61,14 @@
         
         /* Centering the icon */
         .lord-icon {
-            margin-bottom: 40px;
+            /*margin-bottom: 20px;*/
+            margin-top: 50px;
         }
         .massive-name h1 div lord-icon {
-            margin-bottom: 20px;
+            margin-bottom: px;
             align-items: right;
             size-adjust: small;
+            
             
         }
         /* Style for content section */
@@ -111,6 +117,94 @@
                 display: none;
             }
         }
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .social-links a:hover {
+            background-color: #555;
+        }
+
+        .social-links a.twitter {
+            background-color: #1DA1F2;
+        }
+
+        .social-links a.linkedin {
+            background-color: #0077B5;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+            padding-bottom: 10px;
+        }
     </style>    
 </head>
 <body class="background">
@@ -125,7 +219,7 @@
                 <li><a href="customer-service.html">Customer Service</a></li>
                 <li><a href="flight.html">Available flights</a></li>
                 <li><a href="about-us.html">About Us</a></li>
-                <li><a href="travel-insurance.html">Travel Insurance</a></li>
+                <li><a href="travel-insurance.html">Trips we offer</a></li>
             </ul>
         </nav>
         
@@ -136,31 +230,58 @@
             <lord-icon
             src="https://cdn.lordicon.com/txbgsuya.json"
             trigger="hover"
-            style="width:250px;height:250px">
+            style="width:200px;height:150px">
             </lord-icon>
         </div>
              <h1>Pack your bags<br><span>The mome</span>nt  has come to launch a trip..
-                <div>
-                    <lord-icon
-                        src="https://cdn.lordicon.com/xahuqqcs.json"
-                        trigger="hover"
-                        style="width:80px;height:80px">
-                    </lord-icon>
-                </div>
+                  
             </h1>
           
     </div> 
-    <div class="content">
-        <div class="textbox">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non distinctio veniam, veritatis soluta</p>
-            <a href="#">Learn more</a>
-        </div >
-        <div class="imgBox">
-            <img src="#" class="home">
-        </div>
     
+    <p>At <span style="font-weight: bold;">Triplaunch</span>, our passion for space is boundless. We're driven by an insatiable curiosity about the unknown, the infinite possibilities that await us beyond our atmosphere. Our team is a dynamic mix of space enthusiasts, engineers, and travel dreamers, united by a common goal: to make space tourism a reality for you.</p>
+
+    <p>Our mission is to bridge the gap between humanity and the cosmos. We believe that space exploration should not be limited to scientists and astronauts. We want to open up the final frontier to everyone, igniting a sense of wonder and possibility as you journey beyond our planet.</p>
+
+    <p>Choose us for an unforgettable experience. Our team brings together a wealth of knowledge in aerospace engineering, safety protocols, and curating unique travel experiences. Your safety is our top priority, and we adhere to the strictest regulations while partnering with leading figures in the space industry to ensure a smooth and secure journey.</p>
+
+    <p>At Triplaunch, we don't just launch trips; we craft experiences. Our team meticulously plans every detail, from training and preparation to in-flight activities and post-mission celebrations. Join us on this extraordinary adventure!</p>
+
+    <p>Explore our website to learn more about our upcoming launches, training programs, and everything you need to know to prepare for your life-changing voyage. Meet our team:</p>
+
+    <div class="container">
+        <h2>Meet Our Team</h2>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/150" alt="Team member 1">
+            <h3>Mike Fidel</h3>
+            <p>CEO and Founder</p>
+            <div class="social-links">
+                <a class="twitter" href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+                <a class="linkedin" href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/150" alt="Team member 2">
+            <h3>Jane Doe</h3>
+            <p>COO and Co-founder</p>
+            <div class="social-links">
+                <a class="twitter" href="https://twitter.com/janedoe" target="_blank">Twitter</a>
+                <a class="linkedin" href="https://www.linkedin.com/in/janedoe" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/150" alt="Team member 3">
+            <h3>Bob Smith</h3>
+            <p>CTO and Co-founder</p>
+            <div class="social-links">
+                <a class="twitter" href="https://twitter.com/bobsmith" target="_blank">Twitter</a>
+                <a class="linkedin" href="https://www.linkedin.com/in/bobsmith" target="_blank">LinkedIn</a>
+            </div>
+        </div>
     </div>
+    
+
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
 </body>
 </html>
